@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
 import './App.css';
+import Img1 from './internet.png'
+import Login from './login';
+import SignUp from './SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="header">
+      <img src={Img1} height={80} width={80}/>
+     <h1>WECOME TO RECIPE APP</h1>
+   <Router>
+  <div className='designingRouters'>
+  <Link className='designingLoginLink' to="/login">login</Link>
+   <Link className='designingSignupLink' to="/SignUp">Signup</Link>
+  </div>
+    <Routes>
+      <Route path='/login' element={<Login />}>LOGIN</Route>
+      <Route path='/SignUp' element={<SignUp />}>SIGNUP</Route>
+    </Routes>
+   </Router>
+    
     </div>
   );
 }
