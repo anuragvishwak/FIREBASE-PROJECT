@@ -1,24 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Img1 from './sidebarversion2.png'
-import Login from './login';
-import SignUp from './SignUp';
-import Home from './Home';
-
-function App() {    
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Login from "./login";
+import SignUp from "./SignUp";
+import Home from "./Home";
+import RecipeCollection from "./RecipeCollection";
+import AddRecipies from "./AddRecipies";
+function App() {
   return (
-   <div className='main-container'>
-   {/* <img src={Img1} height={710} width={700}/>   */}
-   {/* <Router>
-      <div className="App"> 
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </div>
-    </Router> */}
-    <Home/>
- </div>
+    <div className="main-container">  
+      
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/Home" element={<Home/>} />
+            <Route path="/RecipeCollection" element={<RecipeCollection/>}/>
+            <Route path="/AddRecipies" element={<AddRecipies/>}/>
+          </Routes>
+        
+    </div>
   );
-} 
+}
 export default App;

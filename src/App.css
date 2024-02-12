@@ -1,48 +1,56 @@
 body{
-  background-color: rgb(255, 242, 5);
+  background-color: #FFE5E5;
 }
-  
+
+.imaging{
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
 .container{   
-padding: 15px;
-margin-bottom: 25%;   
-margin-left: 42%; 
-width: 400px;
-height: 360px;
-margin-right: 42%;
-margin-top: 30%;
-background-color:rgb(0, 34, 59);
-border-radius: 30px;
-color: white;
-}
+  width: 850px;
+  height: 400px;
+  background-color:#756AB6;
+  color: white;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 310px;
+  margin-right: 310px;
+  margin-top: 150px;
+  }
+
+
 
 .container1{   
-  padding: 15px;
-  margin-bottom: 25%;   
-  margin-left: 42%; 
-  width: 400px;
-  height: 400px;
-  margin-right: 42%;
-  margin-top: 30%;
-  background-color:rgb(0, 34, 59);
-  border-radius: 30px;
+width: 850px;
+height: 420px;
+background-color:#756AB6;
   color: white;
-  }
-
-
-.inputField1{
-  padding: 6px;
-margin-right: 10%;
-margin-bottom:4%;
-border-radius: 20px;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 310px;
+  margin-right: 310px;
+  margin-top: 140px;
 }
 
-.inputField2{
-  padding: 6px;
-  border-radius: 20px;
-  }
-
+.inputContent{
+  display: flex;
+  flex-direction: column;
+}  
+input.inputField{
+  height: 25px;
+  outline: none;
+  border: none;
+  background-color: #FFE5E5;
+  margin-top: 5px;
+  border-radius: 25px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 .button1{
-  background-color:rgb(255, 59, 91);
+  background-color:739072;
   border: 2px solid white;
   margin-top: 20px;
 }
@@ -70,38 +78,174 @@ border-radius: 20px;
   background-color: rgb(255, 0, 0);
 }
 
-.desingingHeader{
-  text-align: center;
+.designingHeader{
+margin-left: 25%;
 }
 
-.main-container{
-  display:flex;
+.designingSecondHeader{
+text-align: center;
 }
 
 .centering{
   margin-left: 114px;
-  color: rgb(255, 0, 85);
+  color: #FFE5E5;
 } 
 
 .button2{
-margin-left: 21%;
-margin-top: 4%;
-border-radius: 10px; 
-padding: 2%;
-background-color: rgb(255, 0, 0); 
-color: white;
-font-weight: bold;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #E0AED0;
+border: none;
+outline: none;
+cursor: pointer;
+margin: 10px;
+height: 40px;
+width: 90px;
+border-radius: 25px;
+color: #756AB6;
+font-size: 20px;
+font-weight: 600;
+transition: 0.4s ease-in;
+}
+.button2:hover{
+  background-color: #AC87C5;
+  color: #756AB6;
 }
 
 .signingUp{
   text-decoration: none;
   margin-left:6px;
-  color: rgb(0, 255, 0);
+  color: #E0AED0;
 }
 
 .alreadyExistingAccount{
- padding-top: 6%;
- text-align: center;
+ margin-top: 8%;
+ margin-left: 20%;
+}
 
- 
+.inputField3{
+  padding: 1%;
+}
+
+.home-input-field-1{
+  margin-bottom:30px;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.home-inputField1{
+  padding: 5px;
+  border-radius: 10px;
+  padding-right: 70px;
+  margin-bottom: 4%;
+  border: none;
+  outline: none;
+}
+
+.home-inputField2{  
+  border-radius: 10px;
+  padding-bottom:150px; 
+  height: 60px ;
+  width: 250px;
+  outline: none;
+  border: none;
+
+}
+.home-inputField2::-webkit-scrollbar{
+  width: 15px;
+}
+.home-inputField2::-webkit-scrollbar-thumb{
+  background-color: #E0AED0;
+  border-radius: 25px; 
+}
+.centeringElement{
+  margin-top:7%;
+  margin-left:16%;
+}
+
+.centeringButton{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #9687ed;
+border: none;
+outline: none;
+cursor: pointer;
+margin: 10px;
+height: 40px;
+width: 90px;
+border-radius: 25px;
+color: #756AB6;
+font-size: 20px;
+font-weight: 600;
+transition: 0.4s ease-in;
+}
+.centeringButton:hover{
+  background-color: #E0AED0;
+  color: #756AB6;
+}
+
+.container2{   
+  width: 350px;
+  height: 350px;
+  background-color:#756AB6;
+  color: white;
+  border-radius: 10px;
+  margin-left: 39%;
+  margin-right: 40%;
+  margin-top: 4%;
+  padding: 2%;
+  }
+
+.headering{
+  color: rgb(0, 159, 11);
+}
+
+.home-container{
+display: flex;
+justify-content: center;
+padding: 1%;  
+background-color: #AC87C5;
+}
+
+.homie{
+  margin-right:5%; 
+  text-decoration: none;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+
+
+.addRecipe-container{
+  padding: 1%;
+  background-color: #AC87C5;
+}
+
+.homie1{
+  margin-right:2%; 
+  text-decoration: none;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.searchbar{
+  margin-top: 1%;
+  margin-left: 75%;
+  border-radius: 10px;
+  padding: 5px; 
+  padding-right: 8%;
+}
+
+.searchButton{
+  background:none;
+  border: none;
+  color: rgb(0, 0, 0);
+}
+
+.heading3{
+color: white    ;
 }

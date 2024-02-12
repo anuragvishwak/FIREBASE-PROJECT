@@ -1,0 +1,53 @@
+
+.designingBody{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F9EFDB;
+    background-size: cover;
+    filter: blur(5px); /* Adjust the blur radius as needed */
+    z-index: -1; 
+}
+.designingHeadering{
+    color: #9DBC98;
+    text-align: center;
+    font-weight:bolder;
+    
+    margin-left: 30%;
+    margin-right:30%;
+    padding: 2px;
+    border-radius: 10px;
+}   
+.designingRecipe{
+    padding: 1%;
+     background-color: #638889;
+     margin-left: 38%;
+     margin-right: 38%;
+     margin-top: 2%;
+     border-radius: 15px;
+     box-shadow: -2px 3px 36px 18px rgba(0,0,0,0.75);
+    transition: 0.4s ease-out;
+
+}
+.designingRecipe:hover{
+    box-shadow: none;
+
+}
+.imaging{
+
+    border-radius: 20px;
+    margin-bottom: 3%;
+}
+
+.description{
+   
+    color: white;
+   padding: 3%;
+   text-align: justify;
+}
+
+.heading3{
+    margin-right: 2%;
+}

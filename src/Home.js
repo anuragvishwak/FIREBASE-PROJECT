@@ -1,10 +1,15 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
+import { TbLogout2 } from "react-icons/tb";
+import "./App.css";
+import Navbar from './Navbar';
+import RecipeCollection from './RecipeCollection';
 
-function Home() {
+function Home() { 
+
   return (
-    <div className='home-container'>
-          <h1>WELCOME ANURAG</h1>
-          
+    <div>
+      <Navbar/>
+      <RecipeCollection/>
     </div>
   )
 }
