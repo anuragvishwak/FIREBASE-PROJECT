@@ -22,8 +22,8 @@ border-bottom-left-radius: 10px;
 
 
 .container1{   
-width: 850px;
-height: 420px;
+width: 900px;
+height: 490px;
 background-color:#756AB6;
   color: white;
   display: flex;
@@ -43,7 +43,7 @@ input.inputField{
   border: none;
   background-color: #FFE5E5;
   margin-top: 5px;
-  border-radius: 25px;
+  border-radius: 25px;  
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 2px;

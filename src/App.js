@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 import Home from "./Home";
 import RecipeCollection from "./RecipeCollection";
 import AddRecipies from "./AddRecipies";
+import DetailedDescription from "./DetailedDescription";
 function App() {
   return (
     <div className="main-container">  
@@ -15,6 +16,7 @@ function App() {
             <Route path="/Home" element={<Home/>} />
             <Route path="/RecipeCollection" element={<RecipeCollection/>}/>
             <Route path="/AddRecipies" element={<AddRecipies/>}/>
+            <Route path="/DetailedDescription" element={<DetailedDescription/>}/>
           </Routes>
         
     </div>

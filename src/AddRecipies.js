@@ -11,11 +11,10 @@ function AddRecipies() {
   const [image, setimage] = useState();
 
   const addingData = async () => {
-      const storage = getStorage();
-      const storageRef = ref(storage, "some-child");
-      const imageURL = await getDownloadURL(storageRef);
-    console.log(storage);
-    console.log(storageRef);
+    const storage = getStorage();
+    const storageRef = ref(storage, `images/${image.name}`);
+    const imageURL = await getDownloadURL(storageRef);
+    console.log();
     uploadBytes(storageRef, image).then(() => {
       toast.success("Your document is successfully added");
     });
