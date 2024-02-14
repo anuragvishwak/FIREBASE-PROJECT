@@ -29,20 +29,22 @@ function RecipeCollection() {
     
 
   return (
-  <>
+  <>     
     <Navbar/>
     <div>
-      <input className="searchbar" placeholder="FIND RECIPES"></input>
-      <button className="searchButton">
-        <FaSearch size={17} />
-      </button>
+      <div className="flex justify-end mt-6 mr-6">
+      <input className="p-1 border-[#ECB159] w-64 border-2 rounded-xl" placeholder="FIND RECIPES"></input>
+      <button className="ml-1">
+        <FaSearch size={25} />
+      </button>      
+      </div>
 
       <div className="designingBody"></div>
       <h1 className="designingHeadering">WELCOME TO THE RECIPE COLLECTION</h1>
       {/* Map over data and render each recipe */}
     <div className="grid-container">
    {data.map((recipe, recipeName) => (
-        <div key={recipeName.id} className="designingRecipe">
+        <div key={recipeName.id} className="bg-[#8CB9BD]">
           {console.log(recipe.recipeImage)}
           <img className="recipeImage" src={recipe.recipeImage} height={100} width={200} alt={recipe.recipeName} />
            <h3 className="heading3"> NAME: {recipe.recipeName}</h3>

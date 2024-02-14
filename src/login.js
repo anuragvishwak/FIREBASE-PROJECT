@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { app } from "./firebaseConfig";
 import "./App.css";
-import Img1 from "./foods_to_eat_to_lose_weight.webp";
+import Img1 from "./Dish-PNG-High-Quality-Image.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -30,45 +30,52 @@ function Login() {
   }
 
   return (
-    <div className="container">
-      <div>
-        <img className="imaging" src={Img1} height={400} width={500} />
-      </div>
-      <div>
-        <h1 className="designingHeader">WECOME TO RECIPE APP</h1>
-        <h2 className="designingSecondHeader">LOGIN</h2>
-
-        <div className="centering">
-          <div className="inputContent">
-            <label className="adjustingContent">E-MAIL:</label>
+    <div className="bg-gradient-to-r from-[#8CB9BD] to-[#ECB159] min-h-screen">
+      <div className=" flex items-center justify-center">
+        <div className="flex mt-40 p-3 rounded-3xl h-85 bg-[#ffffff] bg-opacity-40 shadow-lg">
+        <img src={Img1} height={410} width={410}/>
+          <div className=" rounded-3xl p-4 ">
             <div>
-              <input
-                type="email"
-                className="inputField"
-                onChange={(event1) => setEmail(event1.target.value)}
-              ></input>
-            </div>
+              <h1 className="text-[#B67352] font-bold mb-4 text-3xl text-center">WECOME TO RECIPE APP</h1>
+              <h2 className="mb-4 text-[#B67352 ] font-bold text-2xl text-center">LOGIN</h2>
 
-            <label>PASSWORD:</label>
-            <div>
-              <input
-                type="password"
-                className="inputField"
-                onChange={(event2) => setPassword(event2.target.value)}
-              ></input>
+              <div>
+                <div>
+                   <div className=" mb-4 flex justify-center">
+                  <label>E-MAIL:</label>
+                    <input
+                      className="border-[#8CB9BD] outline-none rounded-xl ml-11 border-2"
+                      type="email"
+                      onChange={(event1) => setEmail(event1.target.value)}
+                    ></input>
+                  </div>
+
+                 <div className="flex justify-center">
+                  <label>PASSWORD:</label>
+                    <input
+                      className="border-[#8CB9BD] outline-none rounded-xl ml-3 border-2"
+                      type="password"
+                      onChange={(event2) => setPassword(event2.target.value)}
+                    ></input>
+                  </div>
+                </div>
+
+                <div className="mt-5 mb-7 flex justify-center">
+                  <button
+                    className=" bg-[#ECB159] font-bold p-2 rounded-md text-white"
+                    onClick={AuthenticationSignIn}>
+                    Login
+                  </button>
+                </div>
+              </div>
+
+              <h4 className="flex justify-center">
+                don't have an account?
+                <Link className="ml-1 font-bold text-[#ECB159]" to="/SignUp">signup</Link>
+              </h4>
             </div>
           </div>
-
-          <button className="button2" onClick={AuthenticationSignIn}>
-            Login
-          </button>
         </div>
-        <h4 className="alreadyExistingAccount">
-          don't have an account?
-          <Link className="signingUp" to="/SignUp">
-            signup
-          </Link>
-        </h4>
       </div>
     </div>
   );

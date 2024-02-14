@@ -1,17 +1,30 @@
-import React from 'react'
-import { TbLogout2 } from 'react-icons/tb'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { BiLogOutCircle } from "react-icons/bi";
 
 function Navbar() {
   return (
-    <div><div className='home-container'> 
-    <Link className='homie' to='/Home'>HOME</Link>
-    <Link className='homie' to="/RecipeCollection "> RECIPE COLLECTIONS</Link>
-    <Link className='homie' to='/AddRecipies'>ADD RECIPE</Link>
-    <Link className='homie' to='/DetailedDescription'>RECIPE DESCRIPTION</Link>
-    <Link className='homie' to='/'><TbLogout2 /></Link>
- </div></div>
-  )
+    <div className=" bg-[#ECB159]">
+      <div className="flex ml-7 p-2 text-white font-bold text-2xl">
+        <Link className="mr-10" to="/Home">
+          HOME
+        </Link>
+        <Link className="mr-10" to="/RecipeCollection ">
+          {" "}
+          RECIPE COLLECTIONS
+        </Link>
+        <Link className="mr-10" to="/AddRecipies">
+          ADD RECIPE
+        </Link>
+        <Link className="mr-60" to="/DetailedDescription">
+          RECIPE DESCRIPTION
+        </Link>
+        <Link className="ml-96" to="/">
+          <BiLogOutCircle  size={40}/>
+        </Link>
+      </div>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

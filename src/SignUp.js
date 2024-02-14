@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { app } from "./firebaseConfig";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
-import Img1 from "./foods_to_eat_to_lose_weight.webp";
+import Img1 from "./Dish-PNG-High-Quality-Image.png";
 import { db } from "./firebaseConfig";
 import { toast } from "react-toastify";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -55,64 +55,69 @@ createUserWithEmailAndPassword(auth, email, password)
 
   
   return (
-    <div className="container1">
+    <div className="bg-gradient-to-r from-[#8CB9BD] to-[#ECB159] min-h-screen">
+    <div  className=" flex items-center justify-center">
+    <div className="flex mt-40 p-3 rounded-3xl w-9/10 h-1/12 bg-[#ffffff] bg-opacity-40 shadow-lg"> 
       <div>
-        <img className="imaging" src={Img1} height={490} width={580} />
+        <img src={Img1} height={410} width={410} />
       </div>
       <div>
-        <h2  className="designingHeader">WECOME TO RECIPE APP</h2>
-        <h3 className="designingSecondHeader">Sign Up</h3>
+        <h2 className="text-[#B67352] font-bold mb-4 text-3xl ">WECOME TO RECIPE APP</h2>
+        <h3 className="mb-4 font-bold text-2xl text-center">Sign Up</h3>
 
-        <div className="centering">
+           <div>
+           <div className="flex justify-center mb-4">
           <label>FULL NAME:</label>
-          <div>
             <input
               type="text"
-              className="inputField1"
+              className="border-[#8CB9BD] outline-none rounded-xl ml-11 border-2"
               onChange={(event3) => setname(event3.target.value)}
             ></input>
           </div>
 
+          <div className="flex justify-center mb-4">
           <label>PHONE NO:</label>
-          <div>
             <input
               type="text"
-              className="inputField1"
+              className="border-[#8CB9BD] outline-none rounded-xl ml-11 border-2"
               onChange={(event4) => setPhoneNo(event4.target.value)}
             ></input>
           </div>
 
+          <div className="flex justify-center mb-4">
           <label>USERNAME:</label>
-          <div>
             <input
               type="text"
-              className="inputField1"
+              className="border-[#8CB9BD] outline-none rounded-xl ml-11 border-2"
               onChange={(event5) => setuserName(event5.target.value)}
             ></input>
           </div>
 
-          <label className="adjustingContent">E-MAIL:</label>
-          <div>
+          <div className="flex justify-center mb-4">
+          <label className="mr-3">E-MAIL:</label>
+          
             <input
               type="email"
-              className="inputField1"
+              className="border-[#8CB9BD] outline-none rounded-xl ml-16 border-2"
               onChange={(event1) => setEmail(event1.target.value)}
             ></input>
           </div>
 
+          <div className="flex justify-center mb-4">
           <label>PASSWORD:</label>
-          <div>
             <input
               type="password"
-              className="inputField2"
+              className="border-[#8CB9BD] outline-none rounded-xl ml-11 border-2"
               onChange={(event2) => setPassword(event2.target.value)}
             ></input>
           </div>
 
-          <button className="centeringButton" onClick={AuthenticationSignUp}>
+          <button className=" bg-[#ECB159] font-bold p-2 rounded-md text-white ml-36" onClick={AuthenticationSignUp}>
             SignUp
           </button>
+          </div>
         </div>
+      </div>
       </div>
     </div>
   );
