@@ -1,27 +1,45 @@
-import React from 'react'
-import img1 from './OIP.jpeg'
-import Navbar from './Navbar'
+import { useParams } from "react-router-dom";
+import React from "react";
+import { db } from "./firebaseConfig";
+import { useState,useEffect } from 'react'
+import { collection, getDocs } from "firebase/firestore";
+import Navbar from "./Navbar";
+
 function DetailedDescription() {
+  const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const querySnapshot = await getDocs(collection(db, "Add Recipes"));
+      const multipleArray = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      const selectedRecipe = multipleArray.find((recipe) => recipe.id === id);
+      setRecipe(selectedRecipe);
+    }
+    fetchData();
+  }, [id]);
+
   return (
     <>
-     <Navbar/>
-    <div className='detailedDescription-contianer'> 
-    <div className='detailedDescription'>
-         <div className='nameAndImage'><img className='imager' src={img1} height={200} width={230}/>
-        <h1 className='anotherHeader'>PANEER BUTTER MASALA</h1></div>
-        <div className='descriptioner'>
-         Also known as “Butter Paneer,” this yummy and popular vegetarian dish is derived from the recipe for Butter Chicken, a.k.a. Chicken Makhani, that I learned to make during my cooking school days. I know, I know, the thought of me cooking with meat sounds insane. It seems nearly a lifetime ago!
-
-With my easy, quick and delicious recipe you can prepare this Restaurant style Paneer Butter Masala at home. In fact, it’s so easy that you can make it on even busy weeknights! This simple dinner takes just 10 minutes of prep work and 30 minutes on the stove.
-
-My delicious Paneer Butter Masala recipe is one of the most popular recipes on the blog. It has been made and loved by hundreds of readers.
-
-Don’t just take my word for it, either. You can read the comments at the end of the post, which has a lot of positive feedback and reviews from our readers and fans.
-         </div>
-    </div>
-    </div>
+      <Navbar />
+      <div className="ml-10 mr-10 grid grid-cols-4">
+        {recipe && (
+          <div className="flex mt-1 justify-center p-3" key={recipe.id}>
+            <div className="bg-white rounded-xl p-3">
+              <img className="h-56 w-72 rounded-md" src={recipe.recipeImage} alt={recipe.recipeName} />
+              <h3 className="text-3xl font-bold text-[#ECB159]">{recipe.recipeName}</h3>
+              <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
+              <p className="text-[grey] font-serif italic font-bold">{recipe.cuisine}</p>
+              <p className="text-[grey] font-serif italic text-justify">{recipe.recipeDescription}</p>
+            </div>
+          </div>
+        )}
+      </div>
     </>
-  )
+  );
 }
 
-export default DetailedDescription
+export default DetailedDescription;

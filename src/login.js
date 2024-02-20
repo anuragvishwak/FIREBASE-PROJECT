@@ -5,10 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { app } from "./firebaseConfig";
 import "./App.css";
 import Img1 from "./Dish-PNG-High-Quality-Image.png";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [display, setdisplay] = useState('');
+
   const navigate = useNavigate();
 
   function AuthenticationSignIn() {
@@ -20,14 +23,18 @@ function Login() {
         // const user = userCredential.user;
         console.log(userCredential);
         navigate("/Home");
-        return alert("you are successfully logged in");
+        toast.success("you have logged-in succesfully 😁");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        return alert("signin error");
+        toast.error("SIGN ERROR! 😢");
       });
   }
+
+      const printing = ()=>{
+        setEmail(email)
+      }
 
   return (
     <div className="bg-gradient-to-r from-[#8CB9BD] to-[#ECB159] min-h-screen">
@@ -66,9 +73,10 @@ function Login() {
                     onClick={AuthenticationSignIn}>
                     Login
                   </button>
+                 
                 </div>
               </div>
-
+                      
               <h4 className="flex justify-center">
                 don't have an account?
                 <Link className="ml-1 font-bold text-[#ECB159]" to="/SignUp">signup</Link>
