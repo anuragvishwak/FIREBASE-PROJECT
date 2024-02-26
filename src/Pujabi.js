@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { collection, getDocs } from "firebase/firestore";
 import img1 from "./fvgmbvcb061h2agtnixl.webp";
 import img2 from "./punjabi-food-1200x900-1.jpg";
+import { Link } from "react-router-dom";
 
 function Pujabi() {
   const [data, setdata] = useState([]);
@@ -47,7 +48,7 @@ function Pujabi() {
         <img src={img2} width={760} height={500} />
       </div>
  
-         <p className="bg-[#99dbe1] p-2 text-white text-center mb-10 font-bold italic text-2xl">Punjabi cuisine is known for its richness and depth of flavor. From creamy curries to spicy tandoori dishes, Punjabi food delights the taste buds with its bold and robust flavors.</p>
+         <p className="bg-[#99dbe1] p-2 text-white text-center mb-10 font-bold italic text-2xl">Punjabi cuisine is known for its richness and depth of flavor. From creamy curries to spicy tandoori dishes, Punjabi food delights the taste buds with its bold and robust flavors.</p>    
 
       <div className="bg-[#ECB159] ml-20 mr-20 rounded-2xl">
         <p className="text-center italic text-3xl font-[700] text-white">
@@ -57,10 +58,14 @@ function Pujabi() {
           {data.map((recipe) => (
             <div className="flex justify-center p-3  " key={recipe.id}>
               <div className="bg-white rounded-xl p-3">
+               
+          <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
+               
                 <img
                   className="h-56 w-72 rounded-md"
                   src={recipe.recipeImage}
                 />
+                </Link>
                 <h3 className="text-3xl font-bold  text-[#ECB159]">
                   {" "}
                   {recipe.recipeName}
@@ -70,6 +75,9 @@ function Pujabi() {
                 </p>
                 <p className="text-[grey] font-serif italic font-bold">
                   {recipe.cuisine}
+                </p>
+                <p className="text-[grey] font-serif italic font-bold">
+                  {recipe.recipeTime}
                 </p>
               </div>
             </div>

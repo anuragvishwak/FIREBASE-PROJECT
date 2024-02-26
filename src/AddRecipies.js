@@ -15,7 +15,8 @@ function AddRecipies() {
   const [image, setimage] = useState();
   const [Category, setcategory] = useState('');
   const [cuisine, setcuisine] = useState('');
-   
+  const [timer, settimer] = useState(''); 
+
   const addingData = async () => {
     console.log(image)
     const storage = getStorage();
@@ -41,7 +42,8 @@ function AddRecipies() {
         recipeDescription: Description,
         recipeImage: imageURL,
         category: Category,
-        cuisine: cuisine  
+        cuisine: cuisine,
+        recipeTime: timer
       });
       console.log("Document written with ID: ", docRef.id);
       toast.success("Recipe added succesfully😁");
@@ -66,9 +68,9 @@ function AddRecipies() {
               <PiOrangeSliceFill className="text-[yellow]"size={90}/>
              </div>
 
-            <div className="flex ">               
-            <label><p className=" ml-20  text-lg">DISH CATEGORY:</p></label>
-              <div className="ml-2">
+            <div className="flex">               
+            <label><p className="ml-20 text-lg">CATEGORY:</p></label>
+              <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
                   onChange={(e) => setcategory(e.target.value)}
@@ -77,8 +79,8 @@ function AddRecipies() {
                 ></input>
               </div> 
 
-              <label><p className=" text-lg">DISH CUISINE:</p></label>
-              <div className="ml-2">
+              <label><p className=" text-lg">CUISINE:</p></label>
+              <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
                   onChange={(e) => setcuisine(e.target.value)}
@@ -87,8 +89,8 @@ function AddRecipies() {
                   ></input>
               </div> 
 
-              <label><p className=" text-lg">DISH NAME:</p></label>
-              <div className="ml-2">
+              <label><p className=" text-lg">NAME:</p></label>
+              <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
                   onChange={(e) => setname(e.target.value)}
@@ -96,8 +98,18 @@ function AddRecipies() {
                   type="text"
                   ></input>
               </div>  
+               
+              <label><p className=" text-lg">TIME:</p></label>
+              <div className="ml-1">
+                <input
+                className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
+                  onChange={(e) => settimer(e.target.value)}
+                  placeholder="Time Required...."
+                  type="text"
+                  ></input>
+              </div>  
 
-              <div className="ml-10 mb-5">
+              <div className="ml-5 mb-5">
                 <input
                 className="text-lg"
                   type="file"

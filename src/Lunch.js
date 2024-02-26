@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import { collection, getDocs } from "firebase/firestore";
 import img1 from './8143492351_9a0a239384_b.jpg'
 import img2 from './Indian-lunch-ideas-58.jpg'
+import { Link } from 'react-router-dom';
+
 
 function Lunch() {
     const [data, setdata] = useState([]);
@@ -43,13 +45,16 @@ function Lunch() {
       {data.map((recipe) => (
         <div className="flex mt-1  justify-center p-3" key={recipe.id}>
           <div className="bg-white rounded-xl p-3">
+        <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}>
           <img
           className="h-56 w-72 rounded-md"
             src={recipe.recipeImage}/>
+            </Link>
           <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
           <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
           <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine} Cuisine</p>
-  
+        <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}</p>
+          
           </div>
         </div>
       ))} 

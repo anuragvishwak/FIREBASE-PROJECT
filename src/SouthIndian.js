@@ -5,6 +5,8 @@ import { collection, getDocs } from "firebase/firestore";
 import Navbar from './Navbar';
 import img1 from './south indian.jpeg'
 import img2 from './R.jpeg'
+import { Link } from 'react-router-dom';
+
 
 function SouthIndian() {
   const [data, setdata] = useState([]);
@@ -41,13 +43,18 @@ function SouthIndian() {
     {data.map((recipe) => (
       <div className="flex   justify-center p-5" key={recipe.id}>
         <div className="bg-white rounded-xl p-3">
+
+        <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
         <img
         className="h-56 w-72 rounded-md"
           src={recipe.recipeImage}/>
+       </Link>
+
         <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
         <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine}</p>
-
+        <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}</p>
+        
         </div>
       </div>
     ))} 

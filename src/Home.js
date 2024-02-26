@@ -9,7 +9,7 @@ import Chef from "./Chef";
 import Category from "./Category";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home({userName}) {
   
   const [data, setdata] = useState([]);
 
@@ -28,7 +28,7 @@ function Home() {
 
   return (  
     <div className="bg-[#faead0]">
-      <Navbar/>
+      <Navbar userName={userName}/>
       <img src={img1} className="h-screen mb-20"/>
       <Cuisine/>
       <div className="bg-[#99dbe1] p-2 text-white text-center font-bold italic text-2xl mb-20 mt-20">
@@ -42,9 +42,11 @@ Did I whimper with pathetic delight when I sank my teeth into my hot fried-chick
           {data.splice(0,8).map((recipe) => (
             <div className=" bg-white rounded-md flex justify-center" key={recipe.id}>
               <div className=" mb-10">
+          <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
               <img
               className="h-44 w-60 mb-4 mt-3 rounded-md"
                 src={recipe.recipeImage}/>
+                </Link>
               <h3 className="text-2xl font-bold  text-[#B67352]"> {recipe.recipeName}</h3>
               <p className=" text-[grey] font-bold">{recipe.category}</p>
               <p className=" text-[grey]">{recipe.cuisine}</p>

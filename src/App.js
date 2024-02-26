@@ -14,14 +14,18 @@ import Breakfast from "./Breakfast";
 import FastFood from "./FastFood";
 import Lunch from "./Lunch";
 import Dinner from "./Dinner";
+import { useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+
 function App() {
+  const [userName,setUserName]=useState(null);
+  
   return (
-    <div className="main-container">  
-      
+        
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/Home" element={<Home/>} />
+            <Route path="/signup" element={<SignUp setUserName={setUserName} />} />
+            <Route path="/Home" element={<Home userName={userName}/>} />
             <Route path="/RecipeCollection" element={<RecipeCollection/>}/>
             <Route path="/AddRecipies" element={<AddRecipies/>}/>
             <Route path="/detailedDescription/:id" element={<DetailedDescription/>} />
@@ -35,7 +39,6 @@ function App() {
             <Route path="Dinner" element={<Dinner/>}/>
           </Routes>
      
-    </div>
   );
 }
 export default App;

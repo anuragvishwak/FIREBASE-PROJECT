@@ -2,7 +2,7 @@ import React from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { app } from "./firebaseConfig";
+import { app, auth } from "./firebaseConfig";
 import "./App.css";
 import Img1 from "./Dish-PNG-High-Quality-Image.png";
 import { toast } from "react-toastify";
@@ -10,17 +10,18 @@ import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [display, setdisplay] = useState('');
 
   const navigate = useNavigate();
 
   function AuthenticationSignIn() {
-    console.log("ji");
     const auth = getAuth();
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        // localStorage.setItem('userName', userCredential.user.displayName);
         // const user = userCredential.user;
+        setEmail(email);
+        localStorage.setItem("email", email);
         console.log(userCredential);
         navigate("/Home");
         toast.success("you have logged-in succesfully 😁");
@@ -32,10 +33,7 @@ function Login() {
       });
   }
 
-      const printing = ()=>{
-        setEmail(email)
-      }
-
+   console.log(auth)
   return (
     <div className="bg-gradient-to-r from-[#8CB9BD] to-[#ECB159] min-h-screen">
       <div className=" flex items-center justify-center">
