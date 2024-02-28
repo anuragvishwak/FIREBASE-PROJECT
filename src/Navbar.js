@@ -6,10 +6,11 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiCodechef } from "react-icons/si";
 import { getAuth } from "firebase/auth";
-import Logout from "./Logout";
-import { db } from "./firebaseConfig";
+import { FaArrowRight } from "react-icons/fa";
+import { db } from "./firebaseConfig";  
 import { collection, getDocs } from "firebase/firestore";
-import { useState,useEffect } from "react";
+import { useState,useEffect } from "react"; 
+import { FaUserLarge } from "react-icons/fa6";
 
 function Navbar() {
 
@@ -26,7 +27,7 @@ function Navbar() {
       ...doc.data(),
     }));
  
-     const gettingName = multipleArray.filter(data => (data.email === localStorage.getItem('email')))     
+    const gettingName = multipleArray.filter(data => (data.email === localStorage.getItem('email')))     
     console.log(gettingName);
    
     setdata(gettingName);
@@ -34,44 +35,33 @@ function Navbar() {
   }
 
   return (
-    <div className="p-1  flex text-white font-serif font-bold text-2xl items-center justify-between bg-[#ECB159] sticky top-0">
-      <div className="flex">
-      <SiCodechef className=" text-white ml-1" size={40} />
-        <Link className="mr-7 ml-5" to="/Home">
+    <div className="p-1  flex text-black font-sans shadow-xl h-20 text-xl items-center bg-white sticky top-0">
+      <div className="flex items items-center">
+      <SiCodechef className=" text-black ml-1" size={40}/>
+        <Link className="mr-7 hover:text-white ml-5" to="/Home">
           HOME
         </Link>
 
-        <Link className="mr-7" to="/RecipeCollection ">
+        <Link className="mr-7" to="/RecipeCollection">
           RECIPE COLLECTIONS
         </Link>
 
-        <Link className="mr-48" to="/AddRecipies">
+        <Link className="mr-96" to="/AddRecipies">
           ADD RECIPE
         </Link>
       </div>
 
-     <div className="italic">welcome {data.map(e=>e.name)}</div>
+     
+    <Link to='/UserDetails'><FaUserLarge className="ml-96 mr-1"/></Link>{data.map(e=>e.name)}
+    
 
-      {/* {localStorage.getItem('userName')} */}
-
-      <div className="flex items-center justify-around w-48">
-        <Link to="https://twitter.com/home?lang=en-in">
-          <TiSocialTwitter className="" size={25} />
-        </Link>
-        <Link to="https://www.facebook.com/">
-          <TiSocialFacebook className="" size={25} />
-        </Link>
-        <Link to="https://www.instagram.com/?hl=en">
-          <RiInstagramFill className="" size={25} />
-        </Link>
-        <Link to="https://www.linkedin.com/login">
-          <FaLinkedinIn className="" size={25} />
-        </Link>
+      <div className="">
         <Link to="/">
-          <Logout/>
+          <p className="text-white bg-[red] p-1 ml-4 rounded-md"><FaArrowRight size={20}/></p>
         </Link>
-      </div>
-    </div>
+        
+      </div>  
+    </div>  
   );
 }
 

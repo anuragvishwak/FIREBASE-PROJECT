@@ -54,6 +54,7 @@ function Lunch() {
           <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
           <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine} Cuisine</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}</p>
+     <div className="text-[grey] font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
           
           </div>
         </div>

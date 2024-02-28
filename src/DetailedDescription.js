@@ -10,6 +10,7 @@ import { FaClock } from "react-icons/fa6";
 function DetailedDescription() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const [data, setdata] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,7 +26,24 @@ function DetailedDescription() {
     
   }, [id]);
 
-  
+  useEffect(() => {
+    Calling();
+  }, []);
+
+  async function Calling() {
+    const querySnapshot = await getDocs(collection(db, "user details"));
+    const multipleArray = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+ 
+    const gettingName = multipleArray.filter(data => (data.email === localStorage.getItem('email')))     
+    console.log(gettingName);
+    
+    setdata(gettingName);
+   
+  }
+
   return (
     <>
       <Navbar />
@@ -34,39 +52,40 @@ function DetailedDescription() {
       </p>
       {recipe && (
         <div
-          className="flex mt-5 ml-60 mr-60 justify-center p-3"
+          className="flex mt-5 ml-60 mr-60 p-3"
           key={recipe.id}
         >
-          <div className="bg-[#8CB9BD] rounded-bl-3xl  rounded-tr-3xl p-3">
+          <div className="rounded-bl-3xl rounded-tr-3xl p-3">
             <div className="flex">
-              <img className="h-48 w-60" src={recipe.recipeImage} />
+              <img className="h-60 w-96 ml-3 rounded-sm" src={recipe.recipeImage} />
 
-             <div className="flex flex-col justify-center items-center ml-32">
+             <div className="flex flex-col items-center ml-10">
              <div>
-                <p className="text-white text-7xl  font-serif italic font-bold">
+                <p className="text- text-7xl text-[#ECB159] font-serif italic font-bold">
                   {recipe.recipeName}
                 </p>
               </div>
 
               <div className="mt-1">
-                <p className="text-[white] text-xl font-serif italic font-bold">
+                <p className="text-[grey] text-xl font-serif italic font-bold">
                   Category: {recipe.category}
                 </p>
-                <p className="text-[white] text-xl font-serif italic font-bold">
+                <p className="text-[grey] text-xl font-serif italic font-bold">
                   Cuisine: {recipe.cuisine}
                 </p>  
           
               </div>
             <div className="flex text-white">
+            <p className="text-[grey] text-xl font-serif italic font-bold mr-1 ">Time Required -</p>
             <FaClock className="mt-1 mr-2"/><p className="font-serif italic font-bold">
-                      {recipe.recipeTime}
+                      {recipe.recipeTime}mins
                     </p>
             </div>
-            <p>Posted By - {name}</p>
+     <div className="text-[grey] text-xl font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
              </div>
-            </div>
+            </div>  
 
-            <p className="text-[white] mt-3 pl-3 pr-3 font-serif italic text-justify">
+            <p className="text-[grey] mt-3 pl-3 pr-3 font-serif italic text-justify">
               {recipe.recipeDescription}
             </p>
           </div>

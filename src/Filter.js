@@ -1,75 +1,70 @@
-// Filter.js
-
 import React, { useState } from "react";
-import { FaFilter } from "react-icons/fa";
 import { MdOutlineDone } from "react-icons/md";
+import { FaFilter } from "react-icons/fa";
 
 function Filter({ onSelectTime }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedRange, setSelectedRange] = useState([0, 0]); // State to store selected time range
 
-  const handleTime = (time) => {
-    setSelectedTime(time);
-  };
-
-  const applyFilter = () => {
-    onSelectTime(selectedTime);
+  const handleTime = () => {
+    onSelectTime(selectedRange);
     setMenuOpen(false);
   };
 
   return (
     <div>
       <div className="parent">
-        <button className="openingMenu" onClick={() => setMenuOpen(!isMenuOpen)}>
+        <button className="openingMenu" onClick={() => setMenuOpen(true)}>
           <FaFilter className="text-[#ECB159]" size={25} />
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="fixed top-32 right-6 bg-[#B67352] text-white p-3 w-40 rounded-lg">
+        <div className="bg-[#B67352] p-3 w-48 rounded-xl text-white">
+          <p className="text-center italic text-xl mb-2">RECIPES BY TIME</p>
           <div className="flex justify-center">
             <input
-              className="mr-2"
               type="radio"
               name="time"
               value="10min - 20min"
-              onChange={() => handleTime("10min - 20min")} />
-            <p>10min - 20min</p>
+              onChange={() => setSelectedRange([10, 20])}
+            />
+            <label>10min - 20min</label>
+          </div>
+          <div className="flex justify-center">
+            <input
+              type="radio"
+              name="time"
+              value="20min - 30min"
+              onChange={() => setSelectedRange([20, 30])}
+            />
+            <label>20min - 30min</label>
+          </div>
+          <div className="flex justify-center">
+            <input
+              type="radio"
+              name="time"
+              value="30min - 40min"
+              onChange={() => setSelectedRange([30, 40])}
+            />
+            <label>30min - 40min</label>
           </div>
 
           <div className="flex justify-center">
             <input
-              className="mr-2"
               type="radio"
               name="time"
-              value="20min - 30min"
-              onChange={() => handleTime("20min - 30min")}
+              value="30min - 40min"
+              onChange={() => setSelectedRange([40, 50])}
             />
-            <p>20min - 30min</p>
-          </div>
-          <div className="flex justify-center">
-            <input
-              className="mr-2"
-              type="radio"
-              name="time"
-              value="20min - 30min"
-              onChange={() => handleTime("30min - 40min")}
-            />
-            <p>30min - 40min</p>
+            <label>40min - 50min</label>
           </div>
 
-          <div className="flex justify-center">
-            <input
-              className="mr-2"
-              type="radio"
-              name="time"
-              value="40min - 50min"
-              onChange={() => handleTime("40min - 50min")}
-            />
-            <p>40min - 50min</p>
-          </div>
-          <div className="flex mt-1 justify-center">
-            <button onClick={applyFilter} className="bg-[#ECB159] rounded p-1">
+          <div className="flex justify-center mt-2">
+            <button
+              className="bg-[#ECB159] rounded-xl p-1"
+              onClick={handleTime}
+            >
               <MdOutlineDone />
             </button>
           </div>

@@ -30,6 +30,8 @@ function SignUp() {
         username: userName,
       });
       toast.success("you have successfully created your account😁");
+      navigate("/");
+       
     } catch (e) {
       console.error("Error adding document: ", e);
       toast.error("Something went wrong! Try again later. 🥲");
@@ -40,9 +42,9 @@ function SignUp() {
       // Signed up
       setEmail(email);
       localStorage.setItem("email", email);
-      navigate("/");
+      
         
-        // ...
+        // ...  
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -50,7 +52,7 @@ function SignUp() {
         // ..
       });
     }
-    console.log(name);
+
   return (
     <div className="bg-gradient-to-r from-[#8CB9BD] to-[#ECB159] min-h-screen">
       <div className=" flex items-center justify-center">

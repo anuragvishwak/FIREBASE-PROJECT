@@ -1,3 +1,4 @@
+// RecipeCollection.js
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { collection, getDocs } from "firebase/firestore";
@@ -8,9 +9,9 @@ import Filter from "./Filter";
 import { FaSearch } from "react-icons/fa";
 
 function RecipeCollection() {
-  const [data, setdata] = useState([]);
-  const [selectedTime, setSelectedTime] = useState(null);
-  const [search, setsearch] = useState("");
+  const [data, setData] = useState([]);
+  const [selectedTime, setSelectedTime] = useState([0, 0]); // Store selected time range
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     Calling();
@@ -23,35 +24,38 @@ function RecipeCollection() {
       ...doc.data(),
     }));
 
-    if (selectedTime) {
-      const filterData = multipleArray.filter(
-        (recipe) => recipe.recipeTime === selectedTime
-      );
-      setdata(filterData);
-    } else if (search) {
-      const filterData1 = multipleArray.filter(
+    let filterData = multipleArray;
+
+    if (selectedTime[0] !== 0 && selectedTime[1] !== 0) {
+      filterData = filterData.filter((recipe) => {
+        const recipeTime = parseInt(recipe.recipeTime);
+        return recipeTime >= selectedTime[0] && recipeTime <= selectedTime[1];
+      });
+    }
+
+    if (search) {
+      filterData = filterData.filter(
         (recipe) =>
           recipe.cuisine.includes(search) ||
           recipe.recipeName.includes(search) ||
-          recipe.category.includes(search) ||
-          recipe.cuisine.includes(search)
+          recipe.category.includes(search)     
       );
-      setdata(filterData1);
-      setsearch("");
-    } else {
-      setdata(multipleArray);
     }
+
+
+    setData(filterData);
   }
 
-  //this function is run cvalling function  calling and then setting the state of search the specific recipe...
   const handleSearch = () => {
     Calling();
   };
 
+  
+
   return (
     <>
-      <div className="bg-[#faead0]">
-        <Navbar />
+      <div className="h-[100vh]">
+        <Navbar/>
 
         <div className="flex mb-10 mt-6 items-center ml-10 mr-10">
           <h1 className=" text-5xl flex font-bold  text-[#B67352] ml-10 mr-36">
@@ -60,8 +64,9 @@ function RecipeCollection() {
           <div className="flex justify-center">
             <input
               value={search}
-              type="text"
-              onChange={(e) => setsearch(e.target.value)}
+              type="search"
+              placeholder='search recipe....'
+              onChange={(e) => setSearch(e.target.value)}
               className="border-[#ECB159] rounded-xl p-1 border-4 mr-2"
             ></input>
             <button onClick={handleSearch}>
@@ -74,9 +79,9 @@ function RecipeCollection() {
 
         <div className="bg-[#B67352] p-5 rounded-xl ml-10 mr-10 mt-1">
           <div className="gap-7 p-5 grid grid-cols-4">
-            {data.map((recipe) => (
+            { data.length !== 0 ? data.map((recipe) => (
               <div className=" flex" key={recipe.id}>
-                <div className="bg-white p-4 rounded-xl">
+                <div className="bg-black p-4 rounded-xl">
                   <Link
                     to={`/detailedDescription/${recipe.id}`}
                     key={recipe.id}
@@ -86,26 +91,27 @@ function RecipeCollection() {
                       src={recipe.recipeImage}
                     />
                   </Link>
-                  <h3 className="text-3xl font-bold  text-[#ECB159]">
+                  <h3 className="text-3xl font-bold  text-[#ffef41]">
                     {" "}
                     {recipe.recipeName}
                   </h3>
-                  <p className="text-[grey] font-serif italic font-bold">
+                  <p className="text-white font-serif italic font-bold">
                     {recipe.category}
                   </p>
-                  <p className="text-[grey] font-serif italic font-bold">
+                  <p className="text-white font-serif italic font-bold">
                     {recipe.cuisine}
                   </p>
 
-                  <div className="text-[grey]  flex">
+                  <div className="text-white  flex">
                     <FaClock className="mt-1  mr-1" />
                     <p className="font-serif italic font-bold">
-                      {recipe.recipeTime}
+                      {recipe.recipeTime}mins
                     </p>
                   </div>
+     <div className="text-white font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
                 </div>
               </div>
-            ))}
+            )) : <p className="text-8xl text-white font-bold">Loading....</p>}
           </div>
         </div>
       </div>

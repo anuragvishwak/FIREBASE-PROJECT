@@ -49,7 +49,7 @@ function Pujabi() {
       </div>
  
          <p className="bg-[#99dbe1] p-2 text-white text-center mb-10 font-bold italic text-2xl">Punjabi cuisine is known for its richness and depth of flavor. From creamy curries to spicy tandoori dishes, Punjabi food delights the taste buds with its bold and robust flavors.</p>    
-
+0
       <div className="bg-[#ECB159] ml-20 mr-20 rounded-2xl">
         <p className="text-center italic text-3xl font-[700] text-white">
           Enjoy your lunch with these delicious lunch recipes!
@@ -77,7 +77,9 @@ function Pujabi() {
                   {recipe.cuisine}
                 </p>
                 <p className="text-[grey] font-serif italic font-bold">
-                  {recipe.recipeTime}
+                  {recipe.recipeTime}mins
+     <div className="text-[grey] font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
+                  
                 </p>
               </div>
             </div>

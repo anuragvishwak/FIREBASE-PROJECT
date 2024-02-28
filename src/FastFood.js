@@ -19,7 +19,7 @@ function FastFood() {
       id: doc.id,
       ...doc.data(),
     }));
-    const filterData = multipleArray.filter(recipe => recipe.category === 'FAST FOOD');
+    const filterData = multipleArray.filter(recipe => recipe.category === 'FASTFOOD');
     setdata(filterData) 
     }
 
@@ -49,7 +49,8 @@ function FastFood() {
         <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
         <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine}</p>
-        <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}</p>
+        <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}mins</p>
+     <div className="text-[grey] font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
         
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useState,useEffect } from "react";
+import { collection, addDoc,getDocs } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import { toast } from "react-toastify";
 import Navbar from "./Navbar";  
@@ -16,6 +16,7 @@ function AddRecipies() {
   const [Category, setcategory] = useState('');
   const [cuisine, setcuisine] = useState('');
   const [timer, settimer] = useState(''); 
+  const [data, setdata] = useState([]);
 
   const addingData = async () => {
     console.log(image)
@@ -43,15 +44,34 @@ function AddRecipies() {
         recipeImage: imageURL,
         category: Category,
         cuisine: cuisine,
-        recipeTime: timer
+        recipeTime: timer,
+        postedBy: `${data.map(e=>e.name)}`
       });
       console.log("Document written with ID: ", docRef.id);
       toast.success("Recipe added succesfully😁");
     } catch (e) {
       console.error("Error adding document: ", e);
       toast.error("Something went wrong! Try again later. 🥲");
-    }
+    } 
   };
+
+  useEffect(() => {
+    Calling();
+  }, []);
+
+  async function Calling() {
+    const querySnapshot = await getDocs(collection(db, "user details"));
+    const multipleArray = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+ 
+    const gettingName = multipleArray.filter(data => (data.email === localStorage.getItem('email')))     
+    console.log(gettingName);
+    
+    setdata(gettingName);
+   
+  }
 
   return (
     <div className="">
@@ -105,7 +125,7 @@ function AddRecipies() {
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
                   onChange={(e) => settimer(e.target.value)}
                   placeholder="Time Required...."
-                  type="text"
+                  type="number"
                   ></input>
               </div>  
 

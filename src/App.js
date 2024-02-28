@@ -16,6 +16,7 @@ import Lunch from "./Lunch";
 import Dinner from "./Dinner";
 import { useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import UserDetails from "./UserDetails";
 
 function App() {
   const [userName,setUserName]=useState(null);
@@ -37,6 +38,7 @@ function App() {
             <Route path="/Lunch" element={<Lunch/>}/>
             <Route path="/FastFood" element={<FastFood/>}/>
             <Route path="Dinner" element={<Dinner/>}/>
+            <Route path="/UserDetails" element={<UserDetails/>}/>
           </Routes>
      
   );
