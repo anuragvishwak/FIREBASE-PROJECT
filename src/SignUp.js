@@ -29,7 +29,7 @@ function SignUp() {
         phoneNo: phoneNo, 
         username: userName,
       });
-      toast.success("you have successfully created your account😁");
+      toast.success("your data has been stored successfully😁");
       navigate("/");
        
     } catch (e) {
@@ -42,7 +42,8 @@ function SignUp() {
       // Signed up
       setEmail(email);
       localStorage.setItem("email", email);
-      
+      toast.success("you have successfully created your account😁");
+       
         
         // ...  
       })

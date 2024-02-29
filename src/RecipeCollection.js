@@ -58,7 +58,7 @@ function RecipeCollection() {
         <Navbar/>
 
         <div className="flex mb-10 mt-6 items-center ml-10 mr-10">
-          <h1 className=" text-5xl flex font-bold  text-[#B67352] ml-10 mr-36">
+          <h1 className=" text-5xl flex font-bold  text-[#ffe900] ml-16 mr-36">
             WELCOME TO THE RECIPE COLLECTION
           </h1>
           <div className="flex justify-center">
@@ -67,17 +67,17 @@ function RecipeCollection() {
               type="search"
               placeholder='search recipe....'
               onChange={(e) => setSearch(e.target.value)}
-              className="border-[#ECB159] rounded-xl p-1 border-4 mr-2"
+              className="border-[#ffe900] rounded-xl p-1 border-4 mr-2"
             ></input>
             <button onClick={handleSearch}>
-              <FaSearch className="text-[#ECB159]" size={25} />
+              <FaSearch className="text-[#ffe900]" size={25} />
             </button>
           </div>
 
           <Filter onSelectTime={setSelectedTime} />
         </div>
 
-        <div className="bg-[#B67352] p-5 rounded-xl ml-10 mr-10 mt-1">
+        <div className="bg-[#ffe900] p-5 rounded-xl ml-10 mr-10 mt-1">
           <div className="gap-7 p-5 grid grid-cols-4">
             { data.length !== 0 ? data.map((recipe) => (
               <div className=" flex" key={recipe.id}>
@@ -106,9 +106,11 @@ function RecipeCollection() {
                     <FaClock className="mt-1  mr-1" />
                     <p className="font-serif italic font-bold">
                       {recipe.recipeTime}mins
+                      
                     </p>
                   </div>
      <div className="text-white font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
+     <div className="text-white">{recipe.userUID}</div>
                 </div>
               </div>
             )) : <p className="text-8xl text-white font-bold">Loading....</p>}

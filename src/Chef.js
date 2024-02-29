@@ -17,7 +17,7 @@ function Chef() {
            </div>
  
                 
-            <p className='text-justify text-white italic text-xl  mt-4'>
+            <p className='text-justify text-white italic text-xl p-3 mt-4'>
             Truth be told, I entered the Culinary world with no expectations, but just the Love for everything food. All I knew through it all, was that I was doing what I love and wanted to do for the rest of my life. And I’ve always believed that Food is a giver. When you invest so much in it unconditionally, it will surely give back.
             Ranveer Brar, an acclaimed chef, once said, "Food is a universal language that connects people from different cultures and backgrounds." This profound statement beautifully captures the essence of food as a unifying force in the world. Food, regardless of its origin or ingredients, has the remarkable ability to transcend cultural barriers and foster a sense of community. Sharing a meal with someone allows us to gain insights into their heritage, traditions, and values. It serves as a catalyst for dialogue, promoting understanding, acceptance, and appreciation for diverse cultures. 
             </p>
@@ -29,7 +29,7 @@ function Chef() {
             <h3 className='text-5xl text-white   font-[200] ml-12 flex items-center'>CHEF SANJEEV KAPOOR</h3>
  
                 </div>
-        <p className='text-justify italic text-white text-xl mt-4'>Millets, our ‘Shri Anna’ are fast gaining popularity. In this article we share some interesting millets recipes that you can easily include in your meals. These are simple recipes that anyone who is looking to incorporate millets in their diet can start with. Here, we show you how one can make regular preparations using millets. 
+        <p className='text-justify p-3 italic text-white text-xl mt-4'>Millets, our ‘Shri Anna’ are fast gaining popularity. In this article we share some interesting millets recipes that you can easily include in your meals. These are simple recipes that anyone who is looking to incorporate millets in their diet can start with. Here, we show you how one can make regular preparations using millets. 
 
 When cooking millets, it is advisable to know which types of millets need soaking and what are the right ways to cook each of the varieties. While you follow these guidelines, also know that it is important to not overdo millets. Apparently, millets could be difficult for some to digest. So, you should alternate between different millet varieties. 
 

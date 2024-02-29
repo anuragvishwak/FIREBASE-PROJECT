@@ -83,6 +83,7 @@ function DetailedDescription() {
             </div>
      <div className="text-[grey] text-xl font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
              </div>
+            
             </div>  
 
             <p className="text-[grey] mt-3 pl-3 pr-3 font-serif italic text-justify">

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { collection, addDoc,getDocs } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { auth, db } from "./firebaseConfig";
 import { toast } from "react-toastify";
 import Navbar from "./Navbar";  
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -45,7 +45,8 @@ function AddRecipies() {
         category: Category,
         cuisine: cuisine,
         recipeTime: timer,
-        postedBy: `${data.map(e=>e.name)}`
+        postedBy: `${data.map(e=>e.name)}`, 
+        userUID: auth.currentUser.uid
       });
       console.log("Document written with ID: ", docRef.id);
       toast.success("Recipe added succesfully😁");

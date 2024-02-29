@@ -15,12 +15,12 @@ function Filter({ onSelectTime }) {
     <div>
       <div className="parent">
         <button className="openingMenu" onClick={() => setMenuOpen(true)}>
-          <FaFilter className="text-[#ECB159]" size={25} />
+          <FaFilter className="text-[#ffe900]" size={25} />
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="bg-[#B67352] p-3 w-48 rounded-xl text-white">
+        <div className="bg-[#666666] p-3 w-48 rounded-xl text-white">
           <p className="text-center italic text-xl mb-2">RECIPES BY TIME</p>
           <div className="flex justify-center">
             <input

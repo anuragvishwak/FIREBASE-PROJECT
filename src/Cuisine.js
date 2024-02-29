@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function Cuisine() {
   return (
-    <div className=' bg-[#fabe65] ml-10 rounded-tr-full rounded-tl-full mr-10  p-3'>
+    <div className=' bg-[#00a676] ml-10 rounded-tr-full rounded-tl-full mr-10  p-3'>
         <div>
         <h1 className="text-center  pb-4 text-[white] ml-96 rounded-full mr-96 font-[100] text-5xl mb-4">Explore Dishes by Cuisines</h1>
         </div>

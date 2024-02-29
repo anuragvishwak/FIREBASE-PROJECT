@@ -9,7 +9,7 @@ function Logout() {
       .then(() => {
         // Sign-out successful.
         localStorage.clear();
-        console.log('you are successfully signed')
+        console.log('you are logout')
 
       })
       .catch((error) => {

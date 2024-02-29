@@ -36,7 +36,7 @@ function Home({userName}) {
 Did I whimper with pathetic delight when I sank my teeth into my hot fried-chicken sandwich? You betcha.”
      </div>
      <Category/>    
-     <div className="mt-20 text-white p-1 ml-32 mr-32 bg-[#B67352]"> 
+     <div className="mt-20 text-white p-1 ml-32 mr-32 bg-[#00a676]"> 
       <h1 className="text-6xl   font-[100] flex justify-center mb-7">AUNTHENTIC RECIPE COLLECTION!</h1>
      <div className="ml-6 mb-6 mr-6 gap-10 grid grid-cols-4">
           {data.splice(0,8).map((recipe) => (
