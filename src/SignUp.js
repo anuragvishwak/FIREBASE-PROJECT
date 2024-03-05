@@ -9,6 +9,8 @@ import { db } from "./firebaseConfig";
 import { toast } from "react-toastify";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+
+
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +22,10 @@ function SignUp() {
 
   const navigate = useNavigate();
 
+
+
   function AuthenticationSignUp() {
-    try {
+      try {
       const docRef = addDoc(collection(db, "user details"), {
         name: name,
         email: email,
@@ -114,12 +118,16 @@ function SignUp() {
                 ></input>
               </div>
 
+            
+
               <button
                 className=" bg-[#ECB159] font-bold p-2 rounded-md text-white ml-36"
                 onClick={AuthenticationSignUp}
-              >
+>
                 SignUp
               </button>
+
+
             </div>
           </div>
         </div>

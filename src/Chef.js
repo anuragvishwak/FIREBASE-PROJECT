@@ -10,7 +10,7 @@ function Chef() {
        <div className='flex justify-center gap-10 ml-10 mr-10'>
   
                 
-          <div className='bg-[#8CB9BD] p-2 h-1/2 rounded-2xl w-3/6'>
+          <div className='bg-[#5EBEC4] p-2 h-1/2 rounded-2xl w-3/6'>
           <div className=' flex'> 
            <img className='h-40 w-60 rounded-md' src={img}/>
             <h3 className='text-5xl font-[200] text-white ml-12 flex items-center'>CHEF RANVEER BRAR</h3>
@@ -23,7 +23,7 @@ function Chef() {
             </p>
           </div>
         
-          <div className='bg-[#8CB9BD]  h-1/2 p-2 w-3/6 rounded-2xl'>
+          <div className='bg-[#5EBEC4]  h-1/2 p-2 w-3/6 rounded-2xl'>
                 <div className='flex justify-center'>
             <img className='h-40 w-60 rounded-md  ' src={img1}/>
             <h3 className='text-5xl text-white   font-[200] ml-12 flex items-center'>CHEF SANJEEV KAPOOR</h3>

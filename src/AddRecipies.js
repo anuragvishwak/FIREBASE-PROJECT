@@ -19,9 +19,8 @@ function AddRecipies() {
   const [data, setdata] = useState([]);
 
   const addingData = async () => {
-    console.log(image)
+   
     const storage = getStorage();
-    console.log();
     const storageRef = ref(storage, `images/${image.name}`);
     uploadBytes(storageRef, image).then(() => {
       toast.success("Your document is successfully added");
@@ -36,7 +35,6 @@ function AddRecipies() {
       .catch((error) => {
         console.log(error);
       });
-    console.log(imageURL);
     try {
       const docRef = await addDoc(collection(db, "Add Recipes"), {
         recipeName: Name,
@@ -79,18 +77,16 @@ function AddRecipies() {
       <Navbar />
      
       <div className="flex flex-col items-center justify-center">
-        <div className="bg-[#70c1c9]  mt-14 p-2 ml-6 mr-10  rounded-md">
-             <div className="ml-12 mb-10 mr-10    flex justify-between">
-             <GiTomato className=" text-[red] " size={90}/>
-             <IoFastFoodSharp  className=" text-[green]" size={90}/>
+        <div className="bg-[#00004d]  fixed inset-0 bg-cover bg-center bg-opacity-70 mb-10 mt-28 p-5 ml-20 mr-20  rounded-md">
+             <div className="mb-10    flex justify-center">
+           
         <h1 className="text-center text-white mt-6 text-5xl font-[480] mb-7">ADD RECIPES TO OUR LIBRARY</h1>
 
-              <FaCarrot className="text-[#ff7d36]" size={90}/>
-              <PiOrangeSliceFill className="text-[yellow]"size={90}/>
+              
              </div>
 
             <div className="flex">               
-            <label><p className="ml-20 text-lg">CATEGORY:</p></label>
+            <label><p className="ml-20 text-xl font-bold text-[#5EBEC4]">CATEGORY:</p></label>
               <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
@@ -100,7 +96,7 @@ function AddRecipies() {
                 ></input>
               </div> 
 
-              <label><p className=" text-lg">CUISINE:</p></label>
+              <label><p className="text-xl font-bold text-[#5EBEC4]">CUISINE:</p></label>
               <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
@@ -110,7 +106,7 @@ function AddRecipies() {
                   ></input>
               </div> 
 
-              <label><p className=" text-lg">NAME:</p></label>
+              <label><p className="text-xl font-bold text-[#5EBEC4]">NAME:</p></label>
               <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
@@ -120,7 +116,7 @@ function AddRecipies() {
                   ></input>
               </div>  
                
-              <label><p className=" text-lg">TIME:</p></label>
+              <label><p className="text-xl font-bold text-[#5EBEC4]">TIME:</p></label>
               <div className="ml-1">
                 <input
                 className="border-2 border-black  rounded-lg h-8 mb-4 w-11/12"
@@ -130,28 +126,27 @@ function AddRecipies() {
                   ></input>
               </div>  
 
-              <div className="ml-5 mb-5">
+              <div className="ml-5 mb-1">
                 <input
-                className="text-lg"
+                className="text-xl font-bold text-[#5EBEC4]"
                   type="file"
                   onChange={(e) => setimage(e.target.files[0])}
-                ></input>
+                ></input> 
               </div>
               </div>      
 
-              <label><p className="text-lg mt-10 ml-36">DISH DESCRIPTION:</p></label>
+              <label><p className="text-xl font-bold text-[#5EBEC4] mt-5 ml-36">DISH DESCRIPTION:</p></label>
               <div className="flex justify-center">
                 <textarea
                   onChange={(e) => setdescription(e.target.value)}
                   placeholder="dish description...."
-                  className="border-2 border-black ml-10 mr-5 h-52 w-10/12 mb-4 rounded-lg"
+                  className="border-2 border-black ml-10 mr-5 h-56 w-10/12 mb-4 rounded-lg"
                   type="text"
                 ></textarea>
-              </div>    
-             
+              </div>       
             
            <div className="flex justify-center">
-           <button className=" bg-[#B67352] font-serif font-bold p-2 pr-36 pl-36 rounded-md text-white" onClick={addingData}>
+           <button className=" bg-[#5EBEC4] font-serif text-xl font-bold p-2 pr-36 pl-36 rounded-md text-white" onClick={addingData}>
               ADD RECIPE
             </button>
            </div>

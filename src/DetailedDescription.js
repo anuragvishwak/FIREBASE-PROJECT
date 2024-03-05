@@ -47,46 +47,44 @@ function DetailedDescription() {
   return (
     <>
       <Navbar />
-      <p className="text-center text-4xl text-[#ECB159] font-bold italic mt-5">
-        Complete Recipe Description...
-      </p>
+  
       {recipe && (
         <div
-          className="flex mt-5 ml-60 mr-60 p-3"
+          className="flex mt-5 shadow-indigo-500/40 shadow-xl ml-60 mr-60 p-3"
           key={recipe.id}
         >
           <div className="rounded-bl-3xl rounded-tr-3xl p-3">
-            <div className="flex">
+            <div className="flex">  
               <img className="h-60 w-96 ml-3 rounded-sm" src={recipe.recipeImage} />
 
              <div className="flex flex-col items-center ml-10">
              <div>
-                <p className="text- text-7xl text-[#ECB159] font-serif italic font-bold">
+                <p className="text- text-7xl text-[#F92C85] font-serif italic font-bold">
                   {recipe.recipeName}
                 </p>
               </div>
 
               <div className="mt-1">
-                <p className="text-[grey] text-xl font-serif italic font-bold">
+                <p className="text-[#5EBEC4] text-xl font-serif italic font-bold">
                   Category: {recipe.category}
                 </p>
-                <p className="text-[grey] text-xl font-serif italic font-bold">
+                <p className="text-[#5EBEC4] text-xl font-serif italic font-bold">
                   Cuisine: {recipe.cuisine}
                 </p>  
           
               </div>
             <div className="flex text-white">
-            <p className="text-[grey] text-xl font-serif italic font-bold mr-1 ">Time Required -</p>
+            <p className="text-[#5EBEC4] text-xl font-serif italic font-bold mr-1 ">Time Required -</p>
             <FaClock className="mt-1 mr-2"/><p className="font-serif italic font-bold">
                       {recipe.recipeTime}mins
                     </p>
             </div>
-     <div className="text-[grey] text-xl font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
+     <div className="text-[#5EBEC4] text-xl font-serif italic font-bold">Posted By - {recipe.postedBy}</div>
              </div>
             
             </div>  
 
-            <p className="text-[grey] mt-3 pl-3 pr-3 font-serif italic text-justify">
+            <p className="text-[#F92C85] mt-3 pl-3 pr-3 font-serif italic text-justify">
               {recipe.recipeDescription}
             </p>
           </div>

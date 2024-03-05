@@ -11,67 +11,67 @@ function Filter({ onSelectTime }) {
     setMenuOpen(false);
   };
 
-  return (
-    <div>
-      <div className="parent">
-        <button className="openingMenu" onClick={() => setMenuOpen(true)}>
-          <FaFilter className="text-[#ffe900]" size={25} />
-        </button>
-      </div>
+ // Filter component
+
+return (
+  <div>
+    <div className="relative">
+      <button className="openingMenu" onClick={() => setMenuOpen(true)}>
+        <FaFilter className="text-[#5EBEC4] mt-1 ml-1" size={32} />
+      </button>
 
       {isMenuOpen && (
-        <div className="bg-[#666666] p-3 w-48 rounded-xl text-white">
-          <p className="text-center italic text-xl mb-2">RECIPES BY TIME</p>
-          <div className="flex justify-center">
+        <div className="absolute top-0 left-12 mt-2 w-80 bg-[#5EBEC4] bg-opacity-80 rounded-lg p-1 shadow-lg">
+          <button onClick={() => setMenuOpen(false)}  className="bg-[red] text-white  pl-2 pr-2 rounded">x</button>
+          <p className="text-center text-xl text-black font-[700] mb-2">RECIPES BY TIME</p>
+          
+          <div className="flex justify-center mb-2">    
             <input
               type="radio"
               name="time"
               value="10min - 20min"
               onChange={() => setSelectedRange([10, 20])}
             />
-            <label>10min - 20min</label>
-          </div>
-          <div className="flex justify-center">
+            <label className="text-black font-[600] mr-7 ml-1">10min - 20min</label>
+
             <input
               type="radio"
               name="time"
               value="20min - 30min"
               onChange={() => setSelectedRange([20, 30])}
             />
-            <label>20min - 30min</label>
+            <label className="text-black font-[600] ml-1">20min - 30min</label>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center mb-2">
             <input
               type="radio"
               name="time"
               value="30min - 40min"
+              
               onChange={() => setSelectedRange([30, 40])}
             />
-            <label>30min - 40min</label>
-          </div>
-
-          <div className="flex justify-center">
+            <label className="text-black font-[600] mr-7 ml-1">30min - 40min</label>
             <input
               type="radio"
               name="time"
-              value="30min - 40min"
+              value="40min - 50min"
               onChange={() => setSelectedRange([40, 50])}
             />
-            <label>40min - 50min</label>
+            <label className="text-black font-[600] ml-1">40min - 50min</label>
           </div>
-
           <div className="flex justify-center mt-2">
             <button
-              className="bg-[#ECB159] rounded-xl p-1"
-              onClick={handleTime}
-            >
-              <MdOutlineDone />
+              className="bg-[red] hover:bg-[#34A853] mb-2 text-white font-bold p-1 rounded"
+              onClick={handleTime}>
+              Done
             </button>
           </div>
         </div>
       )}
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Filter;
