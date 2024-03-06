@@ -37,12 +37,12 @@ function SouthIndian() {
      <img src={img2} width={760} height={500}/>
      </div>
 
-     <p className='bg-[#99dbe1] p-2 text-white text-center mb-10 font-bold italic text-2xl'>South Indian cuisine is characterized by its rich and bold flavors, often achieved through the use of aromatic spices such as mustard seeds, curry leaves, red chillies, and tamarind. Each dish is carefully seasoned to create a harmonious balance of flavors.</p>
+     
 
-   <div className="ml-10  mr-10 mt-4 bg-[#ECB159] rounded-2xl grid grid-cols-4">
+   <div className="ml-10  mr-10 mt-4 bg-[#d3065f] rounded-2xl grid grid-cols-4">
     {data.map((recipe) => (
       <div className="flex   justify-center p-5" key={recipe.id}>
-        <div className="bg-white rounded-xl p-3">
+        <div className="bg-white hover:shadow-indigo-500/40 shadow-xl rounded-xl p-3">
 
         <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
         <img
@@ -50,7 +50,7 @@ function SouthIndian() {
           src={recipe.recipeImage}/>
        </Link>
 
-        <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
+        <h3 className="text-3xl font-bold  text-[#d3065f]"> {recipe.recipeName}</h3>
         <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}</p>

@@ -21,7 +21,7 @@ return (
       </button>
 
       {isMenuOpen && (
-        <div className="absolute top-0 left-12 mt-2 w-80 bg-[#5EBEC4] bg-opacity-80 rounded-lg p-1 shadow-lg">
+        <div className="absolute right-1 mt-2 w-80 bg-[#5EBEC4] bg-opacity-90 rounded-lg p-1 shadow-lg">
           <button onClick={() => setMenuOpen(false)}  className="bg-[red] text-white  pl-2 pr-2 rounded">x</button>
           <p className="text-center text-xl text-black font-[700] mb-2">RECIPES BY TIME</p>
           

@@ -35,14 +35,12 @@ function Dinner() {
      <img src={img2} width={760} height={500}/>
      </div>
       
-      <p className='bg-[#99dbe1] p-2 text-white text-center mb-10 font-bold italic text-2xl'>"Dinner is the perfect opportunity to slow down, appreciate the present moment, and indulge in the simple pleasures of delicious food and great conversation."</p>
 
-      <div className='bg-[#ECB159] ml-20 mr-20 rounded-2xl p-1'>
-      <p className='text-center italic text-3xl font-[700] text-white'>Get your morning started with these delicious breakfast recipes!</p>
+      <div className='bg-[#d3065f] ml-20 mr-20 rounded-2xl p-1'>
       <div className="ml-10  mr-10  grid grid-cols-4">
       {data.map((recipe) => (
         <div className="flex mt-1 justify-center p-3  " key={recipe.id}>
-          <div className="bg-white rounded-xl p-3">
+          <div className="bg-white hover:shadow-indigo-500/40 shadow-xl rounded-xl p-3">
 
           <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
           <img
@@ -50,7 +48,7 @@ function Dinner() {
             src={recipe.recipeImage}/>
         </Link>
 
-          <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
+          <h3 className="text-3xl font-bold  text-[#d3065f]"> {recipe.recipeName}</h3>
           <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
           <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine}</p>
   

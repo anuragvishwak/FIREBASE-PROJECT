@@ -60,7 +60,7 @@ function Home() {
             </div>
           ))} 
         </div>
-       <Link to='/RecipeCollection'> <p className="mr-10 mb-4 text-xl text-[grey] flex justify-end"><u>VIEW MORE....</u></p> </Link>
+       <Link to='/RecipeCollection'> <p className="mr-10 mb-4 text-xl  flex hover:text-[#21fc0d] justify-end">VIEW MORE....</p> </Link>
      </div>
     
      <Chef/>

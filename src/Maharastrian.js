@@ -36,11 +36,10 @@ function Maharastrian() {
      </div>
        
        
-     <p className="bg-[#99dbe1] p-2 text-white text-center  font-bold italic text-2xl">"Maharashtrian cuisine: a rich tapestry of flavors, a celebration of spices, and a journey through the vibrant culinary heritage of Maharashtra, where every dish tells a story of tradition and innovation."</p>
-    <div className="ml-20 mt-10 mr-20 bg-[#ECB159] grid grid-cols-4">
+    <div className="ml-20 mt-10 mr-20 bg-[#d3065f] grid grid-cols-4">
     {data.map((recipe) => (
       <div className="flex  justify-center p-3  " key={recipe.id}>
-        <div className="bg-white rounded-xl p-3">
+        <div className="bg-white hover:shadow-indigo-500/40 shadow-xl rounded-xl p-3">
 
         <Link to={`/detailedDescription/${recipe.id}`} key={recipe.id}> 
 
@@ -48,7 +47,7 @@ function Maharastrian() {
         className="h-56 w-72 rounded-md"
           src={recipe.recipeImage}/>
           </Link>
-        <h3 className="text-3xl font-bold  text-[#ECB159]"> {recipe.recipeName}</h3>
+        <h3 className="text-3xl font-bold  text-[#d3065f]"> {recipe.recipeName}</h3>
         <p className="text-[grey] font-serif italic font-bold">{recipe.category}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.cuisine}</p>
         <p className='text-[grey] font-serif italic font-bold'>{recipe.recipeTime}mins</p>

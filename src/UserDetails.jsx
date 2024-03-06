@@ -28,7 +28,7 @@ function UserDetails() {
     });
 
     const imageURL = await getDownloadURL(storageRef);
-    const washingtonRef = doc(db, "user details", "6hEkFxV1P50vASyplPvX");
+    const washingtonRef = doc(db, "user details", "tHMEKKAJ2LoZklPOWpBU");
     await updateDoc(washingtonRef, {
       // Assuming 'imageUrl' is the field in Firestore where you store the image URL
       imageUrl: imageURL, // Update the 'imageUrl' field with the new image URL
@@ -93,7 +93,7 @@ function UserDetails() {
       <Navbar />
 
       {data.map((user) => (
-        <div className="ml-80 mt-10 mr-80" key={user.id}>
+        <div className="flex justify-center mt-10" key={user.id}>
           <div className="">
             <div className="flex mb-2 justify-center">
               {user.imageUrl ? (
@@ -150,7 +150,7 @@ function UserDetails() {
                     alt="Recipe Image"
                   />
                 </Link>
-                <h3 className="text-3xl font-bold  text-[#ECB159]">
+                <h3 className="text-3xl font-bold  text-[#F92C85]">
                   {recipe.recipeName}
                 </h3>
                 <p className="text-[grey] font-serif italic font-bold">
